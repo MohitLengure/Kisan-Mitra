@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "448526880312",
+    "firebase_url": "https://kisanmitra-ba33d-default-rtdb.firebaseio.com",
+    "project_id": "kisanmitra-ba33d",
+    "storage_bucket": "kisanmitra-ba33d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448526880312:android:6470b7b2544ab06ebe60cd",
+        "android_client_info": {
+          "package_name": "com.example.kisan_mitra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxp3Ha7XKAkGktnAIXFrklvWpTVgbR36Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448526880312:android:fee84dc8f5eefe78be60cd",
+        "android_client_info": {
+          "package_name": "com.example.kisanmitra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxp3Ha7XKAkGktnAIXFrklvWpTVgbR36Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
