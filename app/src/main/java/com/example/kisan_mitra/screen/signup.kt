@@ -1,7 +1,6 @@
 package com.example.kisan_mitra.screen
 
-import android.util.Patterns
-import android.widget.Toast
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -22,6 +20,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -123,7 +122,7 @@ fun signup(navController: NavHostController){
                 }, colors = TextFieldDefaults.colors(
                     focusedContainerColor = Color.Transparent,
                     unfocusedContainerColor = Color.Transparent
-                ), placeholder = { Text(text = "Name") }, leadingIcon = {
+                ), placeholder = { Text(text = "Name",color = Color.Black) }, leadingIcon = {
                     Icon(imageVector = Icons.Default.Person, contentDescription = null)
                 }
                 )
@@ -136,7 +135,7 @@ fun signup(navController: NavHostController){
                 }, colors = TextFieldDefaults.colors(
                     focusedContainerColor = Color.Transparent,
                     unfocusedContainerColor = Color.Transparent
-                ), placeholder = { Text(text = "Phone Number") }, leadingIcon = {
+                ), placeholder = { Text(text = "Phone Number",color = Color.Black) }, leadingIcon = {
                     Icon(imageVector = Icons.Default.Phone, contentDescription = null)
                 }
                 )
@@ -150,7 +149,7 @@ fun signup(navController: NavHostController){
                     focusedContainerColor = Color.Transparent,
                     unfocusedContainerColor = Color.Transparent
                 ),placeholder = {
-                    Text(text = "abc@gmail.com")
+                    Text(text = "abc@gmail.com",color = Color.Black)
                                  }
                     ,leadingIcon = {
                     Icon(imageVector = Icons.Default.Email, contentDescription = null)
@@ -167,7 +166,7 @@ fun signup(navController: NavHostController){
                     focusedContainerColor = Color.Transparent,
                     unfocusedContainerColor = Color.Transparent
                 ),placeholder = {
-                    Text(text = "Enter Password")
+                    Text(text = "Enter Password",color = Color.Black)
                 }
                     ,leadingIcon = {
                         Icon(imageVector = Icons.Default.Lock, contentDescription = null)
@@ -183,7 +182,7 @@ fun signup(navController: NavHostController){
                     focusedContainerColor = Color.Transparent,
                     unfocusedContainerColor = Color.Transparent
                 ),placeholder = {
-                    Text(text = "Re-Enter Password")
+                    Text(text = "Re-Enter Password",color = Color.Black)
                 }
                     ,leadingIcon = {
                         Icon(imageVector = Icons.Default.Lock, contentDescription = null)
@@ -193,12 +192,15 @@ fun signup(navController: NavHostController){
                 Spacer(modifier = Modifier.padding(10.dp))
                 //Sign Up Button
                     Button(onClick = {
-                        if (Patterns.EMAIL_ADDRESS.matcher(emailid).matches()) {
-                            Toast.makeText(null, "Valid Email", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(null, "SignUp Successful", Toast.LENGTH_SHORT).show()
-                            //navController.navigate(LP)
-                        }
+                        navController.navigate(LP)
+
+
+//                        if (Patterns.EMAIL_ADDRESS.matcher(emailid).matches()) {
+//                            Toast.makeText(null, "Enter Valid Email", Toast.LENGTH_SHORT).show()
+//                        } else {
+//                            Toast.makeText(null, "SignUp Successful", Toast.LENGTH_SHORT).show()
+//                            //navController.navigate(LP)
+//                        }
                     },
                         modifier = Modifier
                             .fillMaxWidth()
@@ -217,22 +219,14 @@ fun signup(navController: NavHostController){
                 }
 
             }
+        //Already an user button
         Spacer(modifier = Modifier.padding(10.dp))
-        Button(modifier = Modifier
-            .fillMaxSize(fraction = 0.8f)
-            ,colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFF11BD28), contentColor = Color.White
-            )
-            ,onClick = {
-            Toast.makeText(null, "Redirect to login", Toast.LENGTH_SHORT).show()
-
-         }
-            ) {
-            Text(text = "Already have an account? \n Login"
-                    ,textAlign = TextAlign.Center
-                , fontSize = 18.sp
-            )
-        }
+       TextButton(onClick = {
+           navController.navigate(LP)
+       }) {
+           Text(text = "Already an user?\n Login ", textAlign = TextAlign.Center,fontSize = 20.sp, color = Color.White, fontFamily = cantoraone)
+           
+       }
 
         }
     }
