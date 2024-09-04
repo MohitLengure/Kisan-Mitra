@@ -43,6 +43,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.kisan_mitra.navigation.FP
 import com.example.kisan_mitra.navigation.LP
 import com.example.kisan_mitra.navigation.SP
 
@@ -119,7 +120,7 @@ fun login(navController: NavHostController){
 
             TextButton(modifier = Modifier.align(Alignment.Start),
                 onClick = {
-                    navController.navigate(SP)
+                    navController.navigate(FP)
                 }
             ) {
 

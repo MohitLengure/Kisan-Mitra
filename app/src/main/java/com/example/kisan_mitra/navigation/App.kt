@@ -6,6 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.kisan_mitra.screen.forgotpassword
 import com.example.kisan_mitra.screen.login
 import com.example.kisan_mitra.screen.signup
 
@@ -25,6 +26,11 @@ fun App(modifier: Modifier = Modifier)
         }
         composable<SP> {
             signup(
+                navController
+            )
+        }
+        composable<FP> {
+            forgotpassword(
                 navController
             )
         }

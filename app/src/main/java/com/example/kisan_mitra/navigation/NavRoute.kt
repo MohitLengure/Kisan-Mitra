@@ -7,3 +7,6 @@ object LP
 
 @Serializable
 object SP
+
+@Serializable
+object FP
