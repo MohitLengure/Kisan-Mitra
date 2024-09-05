@@ -46,7 +46,15 @@ fun forgotpassword(navController: NavHostController) {
         , horizontalAlignment = Alignment.CenterHorizontally
       )
     {
-        Spacer(modifier = Modifier.padding(30.dp))
+        Spacer(modifier = Modifier.padding(10.dp))
+        Text(
+            text = "Forgot Password",
+            fontFamily =cantoraone,
+            fontSize = 24.sp,
+            color = Color.White
+
+        )
+        Spacer(modifier = Modifier.padding(15.dp))
         Box(
             modifier = Modifier
                 .fillMaxWidth(fraction = 0.9f)
@@ -79,9 +87,9 @@ fun forgotpassword(navController: NavHostController) {
                     },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 80.dp),
+                        .padding(horizontal = 60.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = Color(0xFF11BD28), contentColor = Color.White
+                        containerColor = Color.Red, contentColor = Color.White
                     )
                 )
                 {
@@ -89,7 +97,7 @@ fun forgotpassword(navController: NavHostController) {
                         text = "Submit",
                         fontFamily = cantoraone,
                         color = Color.White,
-                        fontSize = 30.sp
+                        fontSize = 24.sp
                     )
                 }
             }
