@@ -37,14 +37,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.ExperimentalSafeArgsApi
+
 import androidx.navigation.NavHostController
 import com.example.kisan_mitra.navigation.LP
 import com.example.kisan_mitra.ui.theme.cambayregular
 import com.example.kisan_mitra.ui.theme.cantoraone
 
 @Preview
-@OptIn(ExperimentalSafeArgsApi::class)
 @Composable
 fun signup(navController: NavHostController){
 
@@ -135,7 +134,10 @@ fun signup(navController: NavHostController){
                 }, colors = TextFieldDefaults.colors(
                     focusedContainerColor = Color.Transparent,
                     unfocusedContainerColor = Color.Transparent
-                ), placeholder = { Text(text = "Phone Number",color = Color.Black) }, leadingIcon = {
+                ), placeholder =
+                {
+                    Text(text = "Phone Number",color = Color.Black)
+                }, leadingIcon = {
                     Icon(imageVector = Icons.Default.Phone, contentDescription = null)
                 }
                 )

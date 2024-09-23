@@ -10,3 +10,6 @@ object SP
 
 @Serializable
 object FP
+
+@Serializable
+object HP

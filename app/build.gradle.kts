@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.firebase.auth)
+    implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -73,9 +74,9 @@ dependencies {
 
     //Added Dependency
     implementation (libs.androidx.core.splashscreen)
-    implementation("androidx.navigation:navigation-fragment-compose:2.8.0-alpha07")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-
+    implementation("androidx.navigation:navigation-fragment-compose:2.8.0")
+    implementation(libs.kotlinx.serialization.json)
+  //implementation("androidx.webkit:webkit:1.8.0")
 
 
 }
