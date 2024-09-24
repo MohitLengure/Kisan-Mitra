@@ -1,14 +1,13 @@
 package com.example.kisan_mitra.screen
 
+import android.annotation.SuppressLint
+import android.view.ViewGroup
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -20,19 +19,21 @@ import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavHostController
 import com.example.kisan_mitra.navigation.LP
 import com.example.kisan_mitra.ui.theme.cantoraone
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun homescreen(navController: NavHostController)
-{
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
-    val WebView=webscreen()
 
+class webscreen() {
+
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun Webview(navController: NavHostController)
+    {
+        val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior(rememberTopAppBarState())
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -56,38 +57,29 @@ fun homescreen(navController: NavHostController)
                         )
                     }
                 },
-                actions = {
-                    IconButton(onClick = { /* do something */ }) {
-                        Icon(
-                            imageVector = Icons.Filled.Menu,
-                            contentDescription = null
-                        )
-                    }
-                },
                 scrollBehavior = scrollBehavior,
-                )
-        },
-
-    ) {
-        Column(modifier=Modifier.padding(it)){
-            Button(onClick = {
-                WebView.WebView(url = "www.google.com")
-            },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 60.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.Red, contentColor = Color.White
-                )
-            ) {
-                Text(text = "Link1")
-
-            }
-            }
+            )
         }
+        ){
+
+    }
     }
 
+    @Composable
+    fun WebView(url: String)
+    {
+        AndroidView(factory = {
+            WebView(it).apply {
+                layoutParams= ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                )
+                webViewClient= WebViewClient()
+                loadUrl(url)
+            }
+        }, update = {
+            it.loadUrl(url)
+        })
+    }
 
-
-
-
+}

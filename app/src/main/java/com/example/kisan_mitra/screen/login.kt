@@ -65,7 +65,7 @@ fun login(navController: NavHostController){
         , verticalArrangement = Arrangement.Top
         , horizontalAlignment = Alignment.CenterHorizontally)
     {
-        Spacer(modifier = Modifier.padding(20.dp))
+        Spacer(modifier = Modifier.padding(40.dp))
             Image(
                 painter = painterResource(id = R.drawable.logo)
                     ,modifier = Modifier.size(160.dp)
@@ -136,7 +136,7 @@ fun login(navController: NavHostController){
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 80.dp),
+                .padding(horizontal = 60.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF11BD28), contentColor = Color.White)
             )

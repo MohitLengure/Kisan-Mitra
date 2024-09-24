@@ -68,11 +68,12 @@ fun signup(navController: NavHostController){
         modifier= Modifier
             .fillMaxSize()
             .background(color = Color(0xFF11BD28))
-            .padding(top = 10.dp),
+            .padding(top = 40.dp),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     )
     {
+      //Spacer(modifier = Modifier.padding(20.dp))
         Text(
             text = "KisanMitra",
             fontSize = 32.sp,
