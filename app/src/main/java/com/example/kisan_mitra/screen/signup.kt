@@ -37,13 +37,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import androidx.navigation.ExperimentalSafeArgsApi
 import androidx.navigation.NavHostController
 import com.example.kisan_mitra.navigation.LP
 import com.example.kisan_mitra.ui.theme.cambayregular
 import com.example.kisan_mitra.ui.theme.cantoraone
 
 @Preview
+@OptIn(ExperimentalSafeArgsApi::class)
 @Composable
 fun signup(navController: NavHostController){
 
@@ -68,12 +69,11 @@ fun signup(navController: NavHostController){
         modifier= Modifier
             .fillMaxSize()
             .background(color = Color(0xFF11BD28))
-            .padding(top = 40.dp),
+            .padding(top = 10.dp),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     )
     {
-      //Spacer(modifier = Modifier.padding(20.dp))
         Text(
             text = "KisanMitra",
             fontSize = 32.sp,

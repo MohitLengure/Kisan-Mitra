@@ -46,7 +46,7 @@ fun forgotpassword(navController: NavHostController) {
         , horizontalAlignment = Alignment.CenterHorizontally
       )
     {
-        Spacer(modifier = Modifier.padding(40.dp))
+        Spacer(modifier = Modifier.padding(10.dp))
         Text(
             text = "Forgot Password",
             fontFamily =cantoraone,
