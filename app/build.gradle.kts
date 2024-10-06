@@ -74,9 +74,13 @@ dependencies {
 
     //Added Dependency
     implementation (libs.androidx.core.splashscreen)
-    implementation("androidx.navigation:navigation-fragment-compose:2.8.0-alpha07")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-  //implementation("androidx.webkit:webkit:1.8.0")
+    implementation("androidx.navigation:navigation-fragment-compose:2.8.0")
+    implementation(libs.kotlinx.serialization.json)
+    implementation("androidx.webkit:webkit:1.8.0")
+
+
+
+
 
 
 }

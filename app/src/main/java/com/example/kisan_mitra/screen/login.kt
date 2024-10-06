@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -31,7 +32,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.sp
-import androidx.navigation.ExperimentalSafeArgsApi
 import androidx.navigation.NavHostController
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
@@ -39,16 +39,16 @@ import com.example.kisan_mitra.R
 import com.example.kisan_mitra.ui.theme.cantoraone
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.kisan_mitra.navigation.FP
+import com.example.kisan_mitra.navigation.HP
 import com.example.kisan_mitra.navigation.LP
 import com.example.kisan_mitra.navigation.SP
 
-
-@OptIn(ExperimentalSafeArgsApi::class)
 
 @Composable
 fun login(navController: NavHostController){
@@ -67,7 +67,7 @@ fun login(navController: NavHostController){
         , verticalArrangement = Arrangement.Top
         , horizontalAlignment = Alignment.CenterHorizontally)
     {
-        Spacer(modifier = Modifier.padding(20.dp))
+        Spacer(modifier = Modifier.padding(40.dp))
             Image(
                 painter = painterResource(id = R.drawable.logo)
                     ,modifier = Modifier.size(160.dp)
@@ -91,7 +91,7 @@ fun login(navController: NavHostController){
 
             Spacer(modifier = Modifier.padding(10.dp))
             //email
-            TextField(modifier = Modifier, value = emailid, onValueChange ={
+            OutlinedTextField(modifier = Modifier, value = emailid, onValueChange ={
                 emailid = it
                 println(it)
             },colors = TextFieldDefaults.colors(
@@ -105,7 +105,7 @@ fun login(navController: NavHostController){
                 })
 
             //password
-            TextField(modifier = Modifier, value = password, onValueChange ={
+            OutlinedTextField(modifier = Modifier, value = password, onValueChange ={
                 password = it
                 println(it)
             }, colors = TextFieldDefaults.colors(
@@ -134,16 +134,16 @@ fun login(navController: NavHostController){
             Spacer(modifier = Modifier.padding(10.dp))
             //Sign Up Button
             Button(onClick = {
-
+                navController.navigate(HP)
             },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 80.dp),
+                .padding(horizontal = 60.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF11BD28), contentColor = Color.White)
             )
              {
-                 Text(text = "Sign Up"
+                 Text(text = "Login Page"
                      , fontFamily = cantoraone
                      , color = Color.White
                      , fontSize = 30.sp
@@ -157,7 +157,7 @@ fun login(navController: NavHostController){
         Spacer(modifier = Modifier.padding(10.dp))
         //
         TextButton(onClick = {
-            navController.navigate(LP)
+            navController.navigate(SP)
         }) {
             Text(text = "Not Yet register?\n Sign Up "
                 ,textAlign = TextAlign.Center

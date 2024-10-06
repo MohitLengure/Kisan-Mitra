@@ -7,8 +7,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.kisan_mitra.screen.forgotpassword
+import com.example.kisan_mitra.screen.homescreen
 import com.example.kisan_mitra.screen.login
 import com.example.kisan_mitra.screen.signup
+
 
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -17,7 +19,7 @@ fun App(modifier: Modifier = Modifier)
 {
     val navController= rememberNavController()
 
-    NavHost(navController = navController, startDestination =SP)
+    NavHost(navController = navController, startDestination =LP)
     {
         composable<LP> {
             login(
@@ -34,6 +36,13 @@ fun App(modifier: Modifier = Modifier)
                 navController
             )
         }
+        composable<HP> {
+            //activity.window.statusBarColor = getColor(R.color.black)
+            homescreen(
+                navController
+            )
+        }
+
     }
 
 }

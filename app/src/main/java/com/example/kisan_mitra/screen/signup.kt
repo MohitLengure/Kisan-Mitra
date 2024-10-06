@@ -19,6 +19,7 @@ import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -37,14 +38,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.ExperimentalSafeArgsApi
+
 import androidx.navigation.NavHostController
 import com.example.kisan_mitra.navigation.LP
 import com.example.kisan_mitra.ui.theme.cambayregular
 import com.example.kisan_mitra.ui.theme.cantoraone
 
 @Preview
-@OptIn(ExperimentalSafeArgsApi::class)
 @Composable
 fun signup(navController: NavHostController){
 
@@ -69,11 +69,12 @@ fun signup(navController: NavHostController){
         modifier= Modifier
             .fillMaxSize()
             .background(color = Color(0xFF11BD28))
-            .padding(top = 10.dp),
+            .padding(top = 40.dp),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     )
     {
+      //Spacer(modifier = Modifier.padding(20.dp))
         Text(
             text = "KisanMitra",
             fontSize = 32.sp,
@@ -116,7 +117,7 @@ fun signup(navController: NavHostController){
 
                 Spacer(modifier = Modifier.padding(10.dp))
                 //Name
-                TextField(modifier = Modifier, value = name, onValueChange = {
+                OutlinedTextField(modifier = Modifier, value = name, onValueChange = {
                     name = it
                     println(it)
                 }, colors = TextFieldDefaults.colors(
@@ -129,7 +130,7 @@ fun signup(navController: NavHostController){
 
                 Spacer(modifier = Modifier.padding(10.dp))
                 //Phone Number
-                TextField(modifier = Modifier, value = phone, onValueChange = {
+                OutlinedTextField(modifier = Modifier, value = phone, onValueChange = {
                     phone = it
                     println(it)
                 }, colors = TextFieldDefaults.colors(
@@ -145,7 +146,7 @@ fun signup(navController: NavHostController){
 
                 //Email
                 Spacer(modifier = Modifier.padding(10.dp))
-                TextField(modifier = Modifier, value = emailid, onValueChange = {
+                OutlinedTextField(modifier = Modifier, value = emailid, onValueChange = {
                     emailid = it
                     println(it)
                 }, colors = TextFieldDefaults.colors(
@@ -162,7 +163,7 @@ fun signup(navController: NavHostController){
 
                 //Password
                 Spacer(modifier = Modifier.padding(10.dp))
-                TextField(modifier = Modifier, value = passwordA, onValueChange = {
+                OutlinedTextField(modifier = Modifier, value = passwordA, onValueChange = {
                     passwordA = it
                     println(it)
                 }, colors = TextFieldDefaults.colors(
@@ -178,7 +179,7 @@ fun signup(navController: NavHostController){
 
                 //Re-Enter Passord
                 Spacer(modifier = Modifier.padding(10.dp))
-                TextField(modifier = Modifier, value = passwordB, onValueChange = {
+                OutlinedTextField(modifier = Modifier, value = passwordB, onValueChange = {
                     passwordB = it
                     println(it)
                 }, colors = TextFieldDefaults.colors(
