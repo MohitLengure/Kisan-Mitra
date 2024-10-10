@@ -33,9 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.kisan_mitra.data.NavItem
 import com.example.kisan_mitra.ui.theme.cantoraone
-import com.example.kisan_mitra.screen.Notification
 
-import kotlinx.coroutines.delay
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -94,7 +92,7 @@ fun homescreen(navController: NavHostController)
                         NavigationBarItem(
                             selected = selectedIndex==index,
                             onClick = {
-
+                                selectedIndex=index
                             },
                             icon = {
                                 BadgedBox(badge = {
@@ -136,7 +134,7 @@ fun ContentScreen(modifier: Modifier=Modifier,selectedIndex:Int)
     when(selectedIndex)
     {
         0->HomePage()
-        1->Notification()
+        1-> Notification()
         2->Contact()
         3-> Profile()
     }
