@@ -89,3 +89,9 @@ private fun ItemImage(item: itemslinks) {
 private fun showToast(context: Context, message: String) {
     Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 }
+
+class kisanViewModel {
+
+
+
+    }
