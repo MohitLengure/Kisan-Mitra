@@ -3,6 +3,9 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     kotlin("plugin.serialization")version "2.0.10"
     alias(libs.plugins.google.gms.google.services)
+
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -81,11 +84,11 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation("io.coil-kt:coil-compose:2.7.0")
 
-    implementation ("com.google.accompanist:accompanist-swiperefresh: 0.27.0")
+    implementation("com.google.dagger:hilt-android:2.50")
+    kapt("com.google.dagger:hilt-android-compiler:2.50")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    kapt("androidx.hilt:hilt-compiler:1.2.0")
 
-
-
-
-
+    implementation (libs.accompanist.swiperefresh)
 
 }

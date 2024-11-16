@@ -30,28 +30,24 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import com.example.kisan_mitra.R
 import com.example.kisan_mitra.ui.theme.cantoraone
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Outline
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.kisan_mitra.navigation.FP
 import com.example.kisan_mitra.navigation.HP
-import com.example.kisan_mitra.navigation.LP
 import com.example.kisan_mitra.navigation.SP
+import com.example.kisan_mitra.ui.AppViewModel
 
 
 @Composable
-fun login(navController: NavHostController){
+fun login(navController: NavHostController,viewModel: AppViewModel = hiltViewModel()){
 
     var emailid by remember{
         mutableStateOf("")

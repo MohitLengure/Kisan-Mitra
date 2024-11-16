@@ -1,6 +1,6 @@
 package com.example.kisan_mitra.screen
 
-
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,13 +18,14 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -33,20 +34,65 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.kisan_mitra.navigation.LP
+import com.example.kisan_mitra.ui.AppViewModel
 import com.example.kisan_mitra.ui.theme.cambayregular
 import com.example.kisan_mitra.ui.theme.cantoraone
 
-@Preview
+
+
 @Composable
-fun signup(navController: NavHostController){
+fun signup(navController: NavHostController,viewModel: AppViewModel =hiltViewModel()){
+
+    val state = viewModel.singUpUserState.collectAsState()
+    val context = LocalContext.current
+
+    when {
+        state.value.Loading -> {
+            Box(
+                modifier = androidx.compose.ui.Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
+            )
+            {
+                CircularProgressIndicator()
+            }
+        }
+
+        state.value.Error != null -> {
+            Box(
+                modifier = androidx.compose.ui.Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
+            )
+            {
+                Text(text = state.value.Error.toString())
+            }
+        }
+
+        state.value.Data != null -> {
+            Box(
+                modifier = androidx.compose.ui.Modifier.fillMaxSize(),
+                contentAlignment = Alignment.BottomCenter
+            )
+            {
+                CircularProgressIndicator(
+                    color = androidx.compose.ui.graphics.Color.Blue,
+                    strokeWidth = 8.dp
+                )
+                Toast.makeText(context, "SignUp Successful Wait a Movement", Toast.LENGTH_SHORT).show()
+                navController.navigate(LP)
+            }
+
+        }
+    }
+
+
 
     var passwordA by remember {
         mutableStateOf("")
@@ -196,7 +242,14 @@ fun signup(navController: NavHostController){
                 Spacer(modifier = Modifier.padding(10.dp))
                 //Sign Up Button
                     Button(onClick = {
-                        navController.navigate(LP)
+                        if(passwordA==passwordB)
+                        {
+                            viewModel.signUpUser(name,emailid,phone,passwordA)
+                        }
+                        else
+                        {
+                            Toast.makeText(null, "Password Not Match", Toast.LENGTH_SHORT).show()
+                        }
 
 
 //                        if (Patterns.EMAIL_ADDRESS.matcher(emailid).matches()) {
@@ -231,7 +284,6 @@ fun signup(navController: NavHostController){
            Text(text = "Already an user?\n Login ", textAlign = TextAlign.Center,fontSize = 20.sp, color = Color.White, fontFamily = cantoraone)
            
        }
-
         }
     }
 

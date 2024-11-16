@@ -1,4 +1,5 @@
 [versions]
+accompanistSwiperefresh = " 0.27.0"
 agp = "8.5.2"
 coreSplashscreen = "1.0.1"
 kotlin = "1.9.0"
@@ -16,6 +17,7 @@ firebaseAuth = "23.0.0"
 firebaseDatabase = "21.0.0"
 
 [libraries]
+accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version = "0.36.0" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
